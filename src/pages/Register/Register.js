@@ -3,19 +3,19 @@ import { View, ScrollView, Text, TextInput, TouchableOpacity } from 'react-nativ
 import { Button } from '../../components/Button'
 
 import styles from './styles'
+import colors from '../../../assets/colors'
 
-import Close from "../../../assets/close.svg"
-import { isNumericLiteral } from 'typescript'
+import Close from '../../../assets/close.svg'
 
 export default function Register({ route, navigation }) {
 
-  const [cpf, setCpf] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [password2, setPassword2] = useState("")
-  const [Birthday, setBirthday] = useState("")
+  const [cpf, setCpf] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [password2, setPassword2] = useState('')
+  const [Birthday, setBirthday] = useState('')
 
-  if (!isNumber(cpf) && cpf != "") setCpf(cpf.substr(0, cpf.length - 1))
+  if (!isNumber(cpf) && cpf != '') setCpf(cpf.substr(0, cpf.length - 1))
 
   return (
     <ScrollView contentContainerStyle={styles.main}>
@@ -36,9 +36,9 @@ export default function Register({ route, navigation }) {
         <Text style={styles.label}>CPF</Text>
         <TextInput
           style={styles.input}
-          placeholder="Apenas números"
-          keyboardType="number-pad"
-          textContentType="postalCode"
+          placeholder='Apenas números'
+          keyboardType='number-pad'
+          textContentType='postalCode'
           onChangeText={text => setCpf(text)}
           value={cpf}
         />
@@ -46,16 +46,16 @@ export default function Register({ route, navigation }) {
         <Text style={styles.label}>E-mail</Text>
         <TextInput
           style={styles.input}
-          placeholder="email@email.com"
-          autoCompleteType="email"
+          placeholder='email@email.com'
+          autoCompleteType='email'
           onChangeText={text => setEmail(text)}
         />
 
         <Text style={styles.label}>Senha</Text>
         <TextInput
           style={styles.input}
-          placeholder="Senha"
-          autoCompleteType="password"
+          placeholder='Senha'
+          autoCompleteType='password'
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
@@ -63,7 +63,7 @@ export default function Register({ route, navigation }) {
         <Text style={styles.label}>Digite sua senha novamente</Text>
         <TextInput
           style={styles.input}
-          placeholder="Digite sua senha novamente"
+          placeholder='Digite sua senha novamente'
           secureTextEntry={true}
           onChangeText={text => setPassword2(text)}
         />
@@ -71,12 +71,12 @@ export default function Register({ route, navigation }) {
         <Text style={styles.label}>Data de nascimento</Text>
         <TextInput
           style={styles.input}
-          placeholder="Data de nascimento Ex: DD/MM/AAAA"
+          placeholder='Data de nascimento Ex: DD/MM/AAAA'
           onChangeText={text => setBirthday(text)}
         />
       </View>
       <View style={styles.buttonView}>
-        <Button color="#2F80ED">
+        <Button color={colors.darkPrimary}>
           Cadastrar
         </Button>
       </View>
@@ -87,7 +87,7 @@ export default function Register({ route, navigation }) {
 function isNumber(cpf) {
   let containsDot = false
 
-  if ((cpf.length == 1 && cpf == ".") 
+  if ((cpf.length == 1 && cpf == '.') 
   || (cpf && cpf.indexOf('.') != -1)) containsDot = true
 
   return !isNaN(parseFloat(cpf)) && isFinite(cpf) && !containsDot
