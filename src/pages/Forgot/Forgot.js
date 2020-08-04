@@ -39,7 +39,6 @@ export default function Forgot({ navigation }) {
 
   return (
     <View style={styles.main}>
-
       <View style={styles.top}>
         <TouchableOpacity
           activeOpacity={0.5}
@@ -76,7 +75,6 @@ export default function Forgot({ navigation }) {
           Recuperar senha
         </Button>
       </View>
-
     </View>
   )
 }
