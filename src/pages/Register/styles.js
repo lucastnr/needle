@@ -23,7 +23,6 @@ export default styles = StyleSheet.create({
         fontWeight: "bold"
     },
     inputView: {
-        marginTop: 36,
         marginBottom: 12,
         alignItems: "center"
     },

@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet, Dimensions } from "react-native"
 
 export default styles = StyleSheet.create({
     main: {
         alignItems: "center",
-        paddingTop: 24,
+        marginTop: 24,
         flex: 1,
         justifyContent: "space-between"
     },
@@ -12,7 +12,6 @@ export default styles = StyleSheet.create({
         fontWeight: "bold"
     },
     inputView: {
-        marginTop: 36,
         marginBottom: 12,
         alignItems: "center"
     },

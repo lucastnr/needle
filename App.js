@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { Login } from "./src/pages/Login"
@@ -12,13 +11,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          headerShown: false,
-          cardStyle: {
-            backgroundColor: "white"
-          }
-        }}
+        initialRouteName="Register"
+        screenOptions={
+          {
+            headerShown: false,
+            cardStyle: {
+              backgroundColor: "white"
+            }
+          }}
       >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />

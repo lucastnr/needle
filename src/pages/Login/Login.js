@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text } from 'react-native'
-import { TextInput, TouchableOpacity, TouchableHighlight } from 'react-native-gesture-handler'
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
 
 import { Button } from "../../components/Button"
 
@@ -13,6 +13,7 @@ export default function Login({ route, navigation }) {
 
   return (
     <View style={styles.main}>
+
       <View style={styles.top}>
         <Text style={styles.title}>
           Bem-vindo ao Needle!
@@ -31,18 +32,17 @@ export default function Login({ route, navigation }) {
           style={styles.input}
           placeholder="Digite sua senha"
           autoCompleteType="password"
-          textContentType="password"
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
 
         <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={() => navigation.navigate("Register")}
+          activeOpacity={0.7}
+          onPress={() => navigation.navigate("Register")}
         >
           <Text style={styles.register}>
             Não tem conta? Clique aqui
-        </Text>
+          </Text>
         </TouchableOpacity>
       </View>
 
