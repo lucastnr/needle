@@ -14,7 +14,6 @@ export default function Login({ route, navigation }) {
 
   return (
     <View style={styles.main}>
-
       <View>
         <Text style={styles.title}>
           Bem-vindo ao Needle!
@@ -59,7 +58,6 @@ export default function Login({ route, navigation }) {
           <Text style={styles.forgot}>Esqueceu sua senha?</Text>
         </TouchableOpacity>
       </View>
-
     </View >
   )
 }
