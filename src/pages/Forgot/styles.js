@@ -6,8 +6,8 @@ const windowHeight = Dimensions.get('window').height;
 export default styles = StyleSheet.create({
   main: {
     alignItems: "center",
-    paddingTop: 12,
-    height: windowHeight-32,
+    marginTop: 24,
+    height: windowHeight,
     justifyContent: "space-between"
   },
   top: {
@@ -22,16 +22,17 @@ export default styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold"
   },
-  inputView: {
-    marginBottom: 12,
-    alignItems: "center"
+  description:{
+    fontSize: 18,
+    color: "#2F80ED",
+    textAlign: "center",
+    marginLeft: 24,
+    marginRight: 24,
+    marginBottom: 32,
+    fontWeight: "bold"
   },
-  label: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 8,
-    width: windowWidth,
-    marginLeft: 32
+  inputView: {
+    alignItems: "center"
   },
   input: {
     backgroundColor: "#F6F6F6",
@@ -40,15 +41,14 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#E8E8E8",
     fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 4
+    fontWeight: "bold"
   },
   register: {
     color: "#2F80ED",
     fontWeight: "bold"
   },
   buttonView: {
-    margin: 64,
+    margin: 32,
     alignItems: "center"
   },
   forgot: {
@@ -56,5 +56,8 @@ export default styles = StyleSheet.create({
     fontSize: 18,
     color: "#2F80ED",
     fontWeight: "bold"
+  },
+  spacer: {
+    flex: 0.5
   }
 })

@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Helvetica Neue Bold.ttf",
+      "sha1": "2f7f83d0f024d7d42c05ebf40a7c635b01554a56"
+    },
+    {
+      "path": "assets/fonts/Helvetica Neue.ttf",
+      "sha1": "5b18e04db1db576209023978dcc3a982c0fb2bc4"
+    }
+  ]
+}

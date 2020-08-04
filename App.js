@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { Login } from "./src/pages/Login"
 import { Register } from "./src/pages/Register"
+import { Forgot } from "./src/pages/Forgot"
 
 const Stack = createStackNavigator()
 
@@ -22,6 +23,7 @@ const App = () => {
       >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Forgot" component={Forgot} />
       </Stack.Navigator>
     </NavigationContainer >
   )

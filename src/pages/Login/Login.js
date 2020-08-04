@@ -14,7 +14,7 @@ export default function Login({ route, navigation }) {
   return (
     <View style={styles.main}>
 
-      <View style={styles.top}>
+      <View>
         <Text style={styles.title}>
           Bem-vindo ao Needle!
         </Text>
@@ -53,6 +53,7 @@ export default function Login({ route, navigation }) {
 
         <TouchableOpacity
           activeOpacity={0.7}
+          onPress = {() => navigation.navigate("Forgot")}
         >
           <Text style={styles.forgot}>Esqueceu sua senha?</Text>
         </TouchableOpacity>
