@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import colors from '../../../assets/colors'
+
+import { AppText } from '../AppText'
 
 export default function Button({ children, color, onPress, hide }) {
 
@@ -15,9 +17,9 @@ export default function Button({ children, color, onPress, hide }) {
         style={[{ backgroundColor: color }, styles.hide]}
         onPress={() => press()}
       >
-        <Text style={styles.text}>
+        <AppText style={styles.text}>
           {children}
-        </Text>
+        </AppText>
       </View>
     )
   }
@@ -28,9 +30,9 @@ export default function Button({ children, color, onPress, hide }) {
       activeOpacity= {0.8}
       onPress={() => press()}
     >
-      <Text style={styles.text}>
+      <AppText style={styles.text}>
         {children}
-      </Text>
+      </AppText>
     </TouchableOpacity>
   )
 }
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontWeight: "bold",
-    fontSize: 24
+    fontSize: 24,
+    fontFamily: 'Helvetica Neue Bold'
   }
 })

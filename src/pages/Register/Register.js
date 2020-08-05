@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { View, ScrollView, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native'
+
+import { AppText } from '../../components/AppText'
 import { Button } from '../../components/Button'
 
 import styles from './styles'
@@ -18,7 +20,7 @@ export default function Register({ route, navigation }) {
   if (!isNumber(cpf) && cpf != '') setCpf(cpf.substr(0, cpf.length - 1))
 
   return (
-    <ScrollView contentContainerStyle={styles.main}>
+    <>
       <View style={styles.top}>
         <TouchableOpacity
           activeOpacity={0.5}
@@ -26,69 +28,84 @@ export default function Register({ route, navigation }) {
         >
           <Close width={24} height={24} />
         </TouchableOpacity>
-        <Text style={styles.title}>
-          Registre-se!
-        </Text>
+
+        <Image
+          source={require('../../../assets/needle-text/needle-blue.png')}
+          resizeMode={'contain'}
+          style={styles.logo}
+        />
+
         <View style={{ width: 24 }} />
       </View>
-      <View style={styles.inputView}>
+      <ScrollView contentContainerStyle={styles.main}>
+        <View style={styles.inputView}>
 
-        <Text style={styles.label}>CPF</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Apenas números'
-          keyboardType='number-pad'
-          textContentType='postalCode'
-          onChangeText={text => setCpf(text)}
-          value={cpf}
-        />
+          <AppText
+            style={styles.label}
+          >CPF</AppText>
+          <TextInput
+            style={styles.input}
+            placeholder='Apenas números'
+            keyboardType='number-pad'
+            textContentType='postalCode'
+            onChangeText={text => setCpf(text)}
+            value={cpf}
+          />
 
-        <Text style={styles.label}>E-mail</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='email@email.com'
-          autoCompleteType='email'
-          onChangeText={text => setEmail(text)}
-        />
+          <AppText
+            style={styles.label}
+          >E-mail</AppText>
+          <TextInput
+            style={styles.input}
+            placeholder='email@email.com'
+            autoCompleteType='email'
+            onChangeText={text => setEmail(text)}
+          />
 
-        <Text style={styles.label}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Senha'
-          autoCompleteType='password'
-          secureTextEntry={true}
-          onChangeText={text => setPassword(text)}
-        />
+          <AppText
+            style={styles.label}
+          >Senha</AppText>
+          <TextInput
+            style={styles.input}
+            placeholder='No mínimo 6 caractéres'
+            autoCompleteType='password'
+            secureTextEntry={true}
+            onChangeText={text => setPassword(text)}
+          />
 
-        <Text style={styles.label}>Digite sua senha novamente</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Digite sua senha novamente'
-          secureTextEntry={true}
-          onChangeText={text => setPassword2(text)}
-        />
+          <AppText
+            style={styles.label}
+          >Digite sua senha novamente</AppText>
+          <TextInput
+            style={styles.input}
+            secureTextEntry={true}
+            onChangeText={text => setPassword2(text)}
+          />
 
-        <Text style={styles.label}>Data de nascimento</Text>
-        <TextInput
-          style={styles.input}
-          placeholder='Data de nascimento Ex: DD/MM/AAAA'
-          onChangeText={text => setBirthday(text)}
-        />
-      </View>
-      <View style={styles.buttonView}>
-        <Button color={colors.darkPrimary}>
-          Cadastrar
+          <AppText
+            style={styles.label}
+          >Digite sua data de nascimento</AppText>
+          <TextInput
+            style={styles.input}
+            placeholder='DD/MM/AAAA'
+            onChangeText={text => setBirthday(text)}
+          />
+        </View>
+        <View style={styles.buttonView}>
+          <Button color={colors.secundary}>
+            Cadastrar
         </Button>
-      </View>
-    </ScrollView>
+        </View>
+      </ScrollView>
+    </>
   )
 }
 
 function isNumber(cpf) {
   let containsDot = false
 
-  if ((cpf.length == 1 && cpf == '.') 
-  || (cpf && cpf.indexOf('.') != -1)) containsDot = true
+  if ((cpf.length == 1 && cpf == '.')
+    || (cpf && cpf.indexOf('.') != -1)) containsDot = true
 
   return !isNaN(parseFloat(cpf)) && isFinite(cpf) && !containsDot
 }

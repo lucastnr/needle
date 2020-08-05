@@ -8,9 +8,10 @@ export default styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between'
     },
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold'
+    logo: {
+        width: 240,
+        marginTop: 8,
+        marginBottom: 24
     },
     inputView: {
         marginBottom: 12,
@@ -23,12 +24,12 @@ export default styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.darkerGray,
         fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 16
+        marginBottom: 16,
+        fontFamily: 'Helvetica Neue Bold'
     },
     register: {
         color: colors.primary,
-        fontWeight: 'bold'
+        fontSize: 16
     },
     buttonView: {
         margin: 64,
@@ -37,7 +38,6 @@ export default styles = StyleSheet.create({
     forgot: {
         marginTop: 16,
         fontSize: 18,
-        color: colors.primary,
-        fontWeight: 'bold'
+        color: colors.primary
     }
 })

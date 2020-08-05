@@ -16,14 +16,15 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
     width: windowWidth,
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
+    marginTop: 12
   },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold'
+  logo: {
+    width: 120,
+    height: 32
   },
   description:{
-    fontSize: 18,
+    fontSize: 24,
     color: colors.primary,
     textAlign: 'center',
     marginLeft: 24,
@@ -32,7 +33,6 @@ export default styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   inputView: {
-    marginTop: 64,
     alignItems: 'center'
   },
   input: {
@@ -42,7 +42,7 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.darkerGray,
     fontSize: 16,
-    fontWeight: 'bold'
+    fontFamily: 'Helvetica Neue Bold'
   },
   modalView: {
     height: 64,
@@ -50,16 +50,12 @@ export default styles = StyleSheet.create({
     justifyContent: 'center'
   },
   modalText: {
-    fontSize: 18,
+    fontSize: 24,
     color: colors.gray2,
     textAlign: 'center',
     marginLeft: 24,
     marginRight: 24,
     marginBottom: 32,
-    fontWeight: 'bold'
-  },
-  register: {
-    color: colors.gray,
     fontWeight: 'bold'
   },
   buttonView: {
@@ -70,7 +66,7 @@ export default styles = StyleSheet.create({
     marginTop: 16,
     fontSize: 18,
     color: colors.gray,
-    fontWeight: 'bold'
+    fontFamily: 'Helvetica Neue Bold'
   },
   spacer: {
     flex: 0.5

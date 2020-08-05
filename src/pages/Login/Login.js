@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { View, Text } from 'react-native'
+import { View, Image } from 'react-native'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
+import { AppText } from '../../components/AppText'
 
 import { Button } from '../../components/Button'
 import colors from '../../../assets/colors'
 
 import styles from './styles'
 
-export default function Login({ route, navigation }) {
+
+export default function Login({ route, navigation, login }) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -15,9 +17,11 @@ export default function Login({ route, navigation }) {
   return (
     <View style={styles.main}>
       <View>
-        <Text style={styles.title}>
-          Bem-vindo ao Needle!
-        </Text>
+        <Image
+          source={require('../../../assets/needle-text/needle-blue.png')}
+          resizeMode={'contain'}
+          style={styles.logo}
+        />
       </View>
 
       <View style={styles.inputView}>
@@ -40,22 +44,33 @@ export default function Login({ route, navigation }) {
           activeOpacity={0.}
           onPress={() => navigation.navigate('Register')}
         >
-          <Text style={styles.register}>
+          <AppText
+            style={styles.register}
+            bold={true}
+          >
             Não tem conta? Clique aqui
-          </Text>
+          </AppText>
         </TouchableOpacity>
       </View>
 
       <View style={styles.buttonView}>
-        <Button color={colors.darkPrimary}>
+        <Button
+        color={colors.secundary}
+        onPress={login}
+        >
           Entrar
         </Button>
 
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress = {() => navigation.navigate('Forgot')}
+          onPress={() => navigation.navigate('Forgot')}
         >
-          <Text style={styles.forgot}>Esqueceu sua senha?</Text>
+          <AppText
+            style={styles.forgot}
+            bold={true}
+          >
+            Esqueceu sua senha?
+          </AppText>
         </TouchableOpacity>
       </View>
     </View >

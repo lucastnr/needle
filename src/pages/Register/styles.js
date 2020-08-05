@@ -2,14 +2,10 @@ import { StyleSheet, Dimensions } from 'react-native'
 import colors from '../../../assets/colors'
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 export default styles = StyleSheet.create({
   main: {
-    alignItems: 'center',
-    paddingTop: 12,
-    height: windowHeight-32,
-    justifyContent: 'space-between'
+    alignItems: 'center'
   },
   top: {
     flexDirection: 'row',
@@ -17,22 +13,23 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
     width: windowWidth,
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
+    marginTop: 12
   },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold'
+  logo: {
+    width: 120,
+    height: 32
   },
   inputView: {
-    marginBottom: 12,
+    marginTop: 32,
     alignItems: 'center'
   },
   label: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
+    fontSize: 20,
+    marginBottom: 10,
     width: windowWidth,
-    marginLeft: 32
+    marginLeft: 40,
+    fontWeight: 'bold'
   },
   input: {
     backgroundColor: colors.gray,
@@ -41,15 +38,11 @@ export default styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.darkerGray,
     fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4
-  },
-  register: {
-    color: colors.primary,
-    fontWeight: 'bold'
+    marginBottom: 24,
+    fontFamily: 'Helvetica Neue Bold'
   },
   buttonView: {
-    margin: 64,
+    marginBottom: 12,
     alignItems: 'center'
   },
   forgot: {
