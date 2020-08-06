@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { View, Image } from 'react-native'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler'
-import { AppText } from '../../components/AppText'
 
+import { AppText } from '../../components/AppText'
 import { Button } from '../../components/Button'
 import colors from '../../../assets/colors'
+
+import AuthContext from '../../contexts/auth'
 
 import styles from './styles'
 
 
-export default function Login({ route, navigation, login }) {
+export default function Login({ route, navigation }) {
+  const { user, signed, signIn } = useContext(AuthContext)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -55,8 +58,8 @@ export default function Login({ route, navigation, login }) {
 
       <View style={styles.buttonView}>
         <Button
-        color={colors.secundary}
-        onPress={login}
+          color={colors.secundary}
+          onPress={signIn}
         >
           Entrar
         </Button>

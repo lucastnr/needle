@@ -10,44 +10,34 @@ import colors from '../../../assets/colors'
 import Header from '../../components/Header/Header'
 
 export default function Forgot({ navigation }) {
-
   const [email, setEmail] = useState('')
   const [recovered, setRecovered] = useState(false)
 
   let placeholder = 'Digite seu e-mail'
   if (recovered) placeholder = email
 
-  function showModal() {
+  function showDescription() {
     if (recovered) return (
-      <AppText
-        style={styles.modalText}
-      >
-        {'Cheque seu e-mail e siga as instruções para redefinir \na senha.'}
+      <AppText style={[{color: colors.gray2}, styles.description]}>
+        {'Cheque seu e-mail e siga as instruções para redefinir a senha.'}
       </AppText>
-    )
-    return (
-      <AppText
-        style={styles.description}
-      >
-        {'Esqueceu sua senha? Coloque seu e-mail para\nrecuperá-la.'}
+    ); return (
+      <AppText style={[{color: colors.primary}, styles.description]}>
+        Esqueceu sua senha? Coloque seu e-mail para recuperá-la.
       </AppText>
     )
   }
-
-  async function toggleModal() {
-    if (!recovered) setRecovered(true)
-  }
+  function toggleModal() { if (!recovered) setRecovered(true) }
 
   return (
     <>
       <Header navigation={navigation} />
 
       <View style={styles.main}>
-
-        <View />
+        <View style={styles.spacer}/>
 
         <View>
-          {showModal()}
+          {showDescription()}
         </View>
 
         <View style={styles.inputView}>
@@ -58,17 +48,17 @@ export default function Forgot({ navigation }) {
             onChangeText={text => setEmail(text)}
             editable={!recovered}
           />
-          <View style={styles.modalView}>
-          </View>
         </View>
 
+        <View style={styles.spacer}/>
+
         <View style={styles.buttonView}>
-          <Button color={colors.darkPrimary}
+          <Button color={colors.secundary}
             onPress={toggleModal}
             hide={recovered}
           >
             Recuperar senha
-        </Button>
+          </Button>
         </View>
       </View>
     </>

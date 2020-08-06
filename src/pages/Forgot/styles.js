@@ -12,11 +12,10 @@ export default styles = StyleSheet.create({
   },
   description:{
     fontSize: 24,
-    color: colors.primary,
     textAlign: 'center',
-    marginLeft: 24,
-    marginRight: 24,
-    marginBottom: 32,
+    marginLeft: 16,
+    marginRight: 16,
+    marginBottom: 24,
     fontWeight: 'bold'
   },
   inputView: {
@@ -30,20 +29,6 @@ export default styles = StyleSheet.create({
     borderColor: colors.darkerGray,
     fontSize: 16,
     fontFamily: 'Helvetica Neue Bold'
-  },
-  modalView: {
-    height: 64,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  modalText: {
-    fontSize: 24,
-    color: colors.gray2,
-    textAlign: 'center',
-    marginLeft: 24,
-    marginRight: 24,
-    marginBottom: 32,
-    fontWeight: 'bold'
   },
   buttonView: {
     alignItems: 'center',
