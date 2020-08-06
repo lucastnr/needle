@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { View, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, ScrollView, TextInput } from 'react-native'
 
 import { AppText } from '../../components/AppText'
 import { Button } from '../../components/Button'
+import { Header } from '../../components/Header'
 
 import styles from './styles'
 import colors from '../../../assets/colors'
-
-import Close from '../../../assets/close.svg'
 
 export default function Register({ route, navigation }) {
 
@@ -21,22 +20,8 @@ export default function Register({ route, navigation }) {
 
   return (
     <>
-      <View style={styles.top}>
-        <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => navigation.goBack()}
-        >
-          <Close width={24} height={24} />
-        </TouchableOpacity>
+      <Header navigation={navigation} />
 
-        <Image
-          source={require('../../../assets/needle-text/needle-blue.png')}
-          resizeMode={'contain'}
-          style={styles.logo}
-        />
-
-        <View style={{ width: 24 }} />
-      </View>
       <ScrollView contentContainerStyle={styles.main}>
         <View style={styles.inputView}>
 
@@ -91,6 +76,7 @@ export default function Register({ route, navigation }) {
             onChangeText={text => setBirthday(text)}
           />
         </View>
+        
         <View style={styles.buttonView}>
           <Button color={colors.secundary}>
             Cadastrar

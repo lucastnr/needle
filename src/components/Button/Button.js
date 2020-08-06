@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Dimensions } from 'react-native'
 import { TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import colors from '../../../assets/colors'
 
 import { AppText } from '../AppText'
+
+const windowWidth = Dimensions.get('window').width;
 
 export default function Button({ children, color, onPress, hide }) {
 
@@ -39,14 +41,14 @@ export default function Button({ children, color, onPress, hide }) {
 
 const styles = StyleSheet.create({
   main: {
-    width: 360,
+    width: windowWidth - 40,
     height: 64,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 360
   },
   hide: {
-    width: 360,
+    width: windowWidth - 40,
     height: 64,
     alignItems: "center",
     justifyContent: "center",

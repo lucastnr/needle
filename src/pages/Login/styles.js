@@ -1,6 +1,8 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import colors from '../../../assets/colors'
 
+const windowWidth = Dimensions.get('window').width;
+
 export default styles = StyleSheet.create({
     main: {
         alignItems: 'center',
@@ -20,7 +22,7 @@ export default styles = StyleSheet.create({
     input: {
         backgroundColor: colors.gray,
         borderRadius: 8,
-        width: 360,
+        width: windowWidth - 40,
         borderWidth: 1,
         borderColor: colors.darkerGray,
         fontSize: 16,

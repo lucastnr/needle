@@ -7,7 +7,7 @@ import { Button } from '../../components/Button'
 import styles from './styles'
 import colors from '../../../assets/colors'
 
-import Close from '../../../assets/close.svg'
+import Header from '../../components/Header/Header'
 
 export default function Forgot({ navigation }) {
 
@@ -40,22 +40,7 @@ export default function Forgot({ navigation }) {
 
   return (
     <>
-      <View style={styles.top}>
-        <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => navigation.goBack()}
-        >
-          <Close width={24} height={24} />
-        </TouchableOpacity>
-
-        <Image
-          source={require('../../../assets/needle-text/needle-blue.png')}
-          resizeMode={'contain'}
-          style={styles.logo}
-        />
-
-        <View style={{ width: 24 }} />
-      </View>
+      <Header navigation={navigation} />
 
       <View style={styles.main}>
 

@@ -34,7 +34,7 @@ const App = () => {
             }}
         >
           <Stack.Screen name='Home'>
-            {props => <Home logout={logout} />}
+            {props => <Home logout={logout} navigation={props.navigation} route={props.route} />}
           </Stack.Screen>
         </Stack.Navigator>
       )
@@ -51,10 +51,14 @@ const App = () => {
           }}
       >
         <Stack.Screen name='Login'>
-          {props => <Login login={login}/>}
+          {props => <Login login={login} navigation={props.navigation} route={props.route} />}
         </Stack.Screen>
-        <Stack.Screen name='Register' component={Register} />
-        <Stack.Screen name='Forgot' component={Forgot} />
+        <Stack.Screen name='Register'>
+          {props => <Register navigation={props.navigation} route={props.route} />}
+        </Stack.Screen>
+        <Stack.Screen name='Forgot'>
+          {props => <Forgot navigation={props.navigation} route={props.route} />}
+        </Stack.Screen>
       </Stack.Navigator>
     )
   }

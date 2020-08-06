@@ -16,10 +16,6 @@ export default styles = StyleSheet.create({
     paddingRight: 16,
     marginTop: 12
   },
-  logo: {
-    width: 120,
-    height: 32
-  },
   inputView: {
     marginTop: 32,
     alignItems: 'center'
@@ -34,7 +30,7 @@ export default styles = StyleSheet.create({
   input: {
     backgroundColor: colors.gray,
     borderRadius: 8,
-    width: 360,
+    width: windowWidth - 40,
     borderWidth: 1,
     borderColor: colors.darkerGray,
     fontSize: 16,

@@ -10,19 +10,6 @@ export default styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between'
   },
-  top: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: windowWidth,
-    paddingLeft: 16,
-    paddingRight: 16,
-    marginTop: 12
-  },
-  logo: {
-    width: 120,
-    height: 32
-  },
   description:{
     fontSize: 24,
     color: colors.primary,
@@ -38,7 +25,7 @@ export default styles = StyleSheet.create({
   input: {
     backgroundColor: colors.gray,
     borderRadius: 8,
-    width: 360,
+    width: windowWidth - 40,
     borderWidth: 1,
     borderColor: colors.darkerGray,
     fontSize: 16,

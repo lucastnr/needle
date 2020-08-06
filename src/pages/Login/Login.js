@@ -41,7 +41,7 @@ export default function Login({ route, navigation, login }) {
         />
 
         <TouchableOpacity
-          activeOpacity={0.}
+          activeOpacity={0.8}
           onPress={() => navigation.navigate('Register')}
         >
           <AppText
