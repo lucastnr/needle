@@ -8,6 +8,6 @@ export function signIn() {
                     email: 'email@email.com'
                 }
             })
-        }, 2000)
+        }, 100)
     })
 }

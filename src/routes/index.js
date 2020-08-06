@@ -1,10 +1,14 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 
 import AppRoutes from './AppRoutes'
 import AuthRoutes from './AuthRoutes'
-import AuthContext from '../contexts/auth'
+import { useAuth } from '../contexts/auth'
+import { Loading } from '../components/Loading'
 
 export default function Routes() {
-  const { signed } = useContext(AuthContext)
+  const { signed, loading } = useAuth()
+
+  if (loading) return <Loading />
+
   return signed ? <AppRoutes /> : <AuthRoutes />
 }
