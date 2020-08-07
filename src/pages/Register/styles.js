@@ -17,7 +17,7 @@ export default styles = StyleSheet.create({
     marginTop: 12
   },
   inputView: {
-    marginTop: 32,
+    marginVertical: 32,
     alignItems: 'center'
   },
   label: {
@@ -31,7 +31,7 @@ export default styles = StyleSheet.create({
     backgroundColor: colors.gray,
     borderRadius: 8,
     width: windowWidth - 40,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: colors.darkerGray,
     fontSize: 16,
     marginBottom: 24,

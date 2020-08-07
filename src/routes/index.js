@@ -6,9 +6,7 @@ import { useAuth } from '../contexts/auth'
 import { Loading } from '../components/Loading'
 
 export default function Routes() {
-  const { signed, loading } = useAuth()
-
-  if (loading) return <Loading />
-
-  return signed ? <AppRoutes /> : <AuthRoutes />
+  const { signed, loading } = useAuth() // Pega os dados do contexto
+  if (loading) return <Loading /> // Retorna a página de loading
+  return signed ? <AppRoutes /> : <AuthRoutes /> // Seleciona a rota dependendo de se estiver logado ou não
 }

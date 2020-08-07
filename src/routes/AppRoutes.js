@@ -5,12 +5,12 @@ import { Home } from '../pages/Home'
 
 const AppStack = createStackNavigator()
 
-export default function AppRoutes() {
+export default function AppRoutes() { // Stack de quando se está logado
   return (
     <AppStack.Navigator
       initialRouteName='Home'
-      screenOptions={
-        {
+      screenOptions={ // Opções que vão para todas as páginas do stack
+        {       
           headerShown: false,
           cardStyle: {
             backgroundColor: 'white'

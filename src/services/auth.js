@@ -1,13 +1,14 @@
-export function signIn() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                token: "fh468gk1jth7894kjdh78sgf89n1",
-                user: {
-                    name: 'Username',
-                    email: 'email@email.com'
-                }
-            })
-        }, 100)
-    })
+export async function signIn(email, password) { // Função que requere os dados do usuário  
+  async function getDataFromApi() {
+    try {
+      const response = await fetch(`https://needle-server.herokuapp.com/login/${email}/${password}`)
+      const json = await response.json()
+      return json
+    } catch (error) {
+      console.error(error)
+      return null
+    }
+
+  }
+  return await getDataFromApi()
 }

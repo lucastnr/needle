@@ -14,7 +14,6 @@ export default function Register({ route, navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [password2, setPassword2] = useState('')
-  const [Birthday, setBirthday] = useState('')
 
   if (!isNumber(cpf) && cpf != '') setCpf(cpf.substr(0, cpf.length - 1))
 
@@ -66,17 +65,8 @@ export default function Register({ route, navigation }) {
             secureTextEntry={true}
             onChangeText={text => setPassword2(text)}
           />
-
-          <AppText
-            style={styles.label}
-          >Digite sua data de nascimento</AppText>
-          <TextInput
-            style={styles.input}
-            placeholder='DD/MM/AAAA'
-            onChangeText={text => setBirthday(text)}
-          />
         </View>
-        
+
         <View style={styles.buttonView}>
           <Button color={colors.secundary}>
             Cadastrar

@@ -25,7 +25,7 @@ export default styles = StyleSheet.create({
     backgroundColor: colors.gray,
     borderRadius: 8,
     width: windowWidth - 40,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: colors.darkerGray,
     fontSize: 16,
     fontFamily: 'Helvetica Neue Bold'

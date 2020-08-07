@@ -3,53 +3,60 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 import * as auth from '../services/auth'
 
-const AuthContext = createContext({})
+const AuthContext = createContext({}) // Cria o contexto
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true) // Loading inicial
+  const [logging, setLogging] = useState(false) // Se está logando
 
-  useEffect(() => {
-    async function loadStoragedData() {
+  useEffect(() => { // Roda toda vez que o AuthContext for gerado
+    async function loadStoragedData() { // Pega os dados do usuário e verifica se está logado
       const storagedUser = await AsyncStorage.getItem('@Needle:user')
-      const storagedToken = await AsyncStorage.getItem('@Needle:token')
+      // const storagedToken = await AsyncStorage.getItem('@Needle:token')
 
-      if (storagedUser && storagedToken) {
-        setUser(JSON.parse(storagedUser))
-        setTimeout(() => setLoading(false), 2000)
-        
+      if (storagedUser /*&& storagedToken*/) { // Verifica se os dados do usuário existem, ou seja, se está logado
+        setUser(JSON.parse(storagedUser)) // Seta o estado do usuário com o que estava guardado
       }
+      setLoading(false) // Desativa o loading
     }
 
     loadStoragedData()
   }, [])
 
-  async function signIn() {
-    const response = await auth.signIn();
-    setUser(response.user)
-    await AsyncStorage.setItem('@Needle:user', JSON.stringify(response.user))
-    await AsyncStorage.setItem('@Needle:token', response.token)
+  async function signIn(email, password) { // Função que loga
+    setLogging(true)
+    const response = await auth.signIn(email, password) // Chama o serviço signIn
+
+    // Seta o usuário com a resposta do sistema
+    if (response) {
+      setUser(response)
+      await AsyncStorage.setItem('@Needle:user', JSON.stringify(response))
+      // await AsyncStorage.setItem('@Needle:token', response.token)
+    }
+    setLogging(false)
   }
 
-  async function logout() {
-    await AsyncStorage.clear()
-    setUser(null)
+  async function logout() { // Função que desloga
+    await AsyncStorage.clear() // Limpa o armazenamento(Usuário e token)
+    setUser(null) // Seta o usuário como nulo
   }
 
   return (
-    <AuthContext.Provider value={{
+    <AuthContext.Provider value={{ // Seta os dados do provider
       signed: !!user,
       user,
       signIn,
       logout,
-      loading
+      loading,
+      logging
     }}>
       {children}
     </AuthContext.Provider>
   )
 }
 
-export function useAuth() {
+export function useAuth() { // Cria um hook com os dados do context
   const context = useContext(AuthContext)
   return context
 }

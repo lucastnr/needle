@@ -6,14 +6,14 @@ const windowWidth = Dimensions.get('window').width;
 export default styles = StyleSheet.create({
     main: {
         alignItems: 'center',
-        marginTop: 24,
+        paddingTop: 80,
         flex: 1,
         justifyContent: 'space-between'
     },
     logo: {
         width: 240,
         marginTop: 8,
-        marginBottom: 24
+        marginBottom: 8
     },
     inputView: {
         marginBottom: 12,
@@ -23,7 +23,7 @@ export default styles = StyleSheet.create({
         backgroundColor: colors.gray,
         borderRadius: 8,
         width: windowWidth - 40,
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: colors.darkerGray,
         fontSize: 16,
         marginBottom: 16,

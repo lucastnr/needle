@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native'
 import { TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import colors from '../../../assets/colors'
 
@@ -7,49 +7,55 @@ import { AppText } from '../AppText'
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function Button({ children, color, onPress, hide }) {
-
+export default function Button({ children, color, onPress, hide, loading }) {
   function press() {
     if (onPress) return onPress()
   }
 
-  if (hide) {
+  function Content() {
+    if (loading) {
+      return <ActivityIndicator size='large' color='white' />
+    }
+
     return (
-      <View
-        style={[{ backgroundColor: color }, styles.hide]}
-        onPress={() => press()}
-      >
-        <AppText style={styles.text}>
-          {children}
-        </AppText>
-      </View>
+      <AppText style={styles.text}>
+        {children}
+      </AppText>
     )
   }
 
-  return (
-    <TouchableOpacity
-      style={[{ backgroundColor: color }, styles.main]}
-      activeOpacity= {0.8}
+  if (hide) return (
+    <View
+      style={[{ backgroundColor: color }, styles.hide]}
       onPress={() => press()}
     >
       <AppText style={styles.text}>
         {children}
       </AppText>
+    </View>
+  )
+  return (
+    <TouchableOpacity
+      style={[{ backgroundColor: color }, styles.main]}
+      activeOpacity={0.8}
+      onPress={() => press()}
+    >
+      <Content />
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
   main: {
-    width: windowWidth - 40,
-    height: 64,
+    width: windowWidth - 80,
+    height: 56,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 360
   },
   hide: {
-    width: windowWidth - 40,
-    height: 64,
+    width: windowWidth - 80,
+    height: 56,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 360,

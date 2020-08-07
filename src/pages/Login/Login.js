@@ -12,7 +12,7 @@ import styles from './styles'
 
 
 export default function Login({ route, navigation }) {
-  const { user, signed, signIn } = useAuth()
+  const { user, signed, signIn, logging } = useAuth()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -59,7 +59,8 @@ export default function Login({ route, navigation }) {
       <View style={styles.buttonView}>
         <Button
           color={colors.secundary}
-          onPress={signIn}
+          onPress={() => signIn(email, password)}
+          loading={logging}
         >
           Entrar
         </Button>
