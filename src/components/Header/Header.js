@@ -34,8 +34,7 @@ const styles = StyleSheet.create({
     width: windowWidth,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingTop: 12,
-    paddingBottom: 12
+    height: 48
   },
   logo: {
     width: 120,
