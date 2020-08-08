@@ -4,6 +4,7 @@ import { View, ScrollView, TextInput } from 'react-native'
 import { AppText } from '../../components/AppText'
 import { Button } from '../../components/Button'
 import { Header } from '../../components/Header'
+import { register } from '../../services/register'
 
 import styles from './styles'
 import colors from '../../../assets/colors'
@@ -68,7 +69,10 @@ export default function Register({ route, navigation }) {
         </View>
 
         <View style={styles.buttonView}>
-          <Button color={colors.secundary}>
+          <Button
+            color={colors.secundary}
+            onPress={() => register(cpf, email, password)}
+          >
             Cadastrar
         </Button>
         </View>

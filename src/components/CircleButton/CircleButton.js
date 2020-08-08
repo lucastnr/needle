@@ -1,12 +1,11 @@
 import React from 'react'
 import { View, StyleSheet, Dimensions, ActivityIndicator } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-
 import { AppText } from '../AppText'
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function Button({ children, color, onPress, hide, loading }) {
+export default function CircleButton({ children, color, onPress, hide, loading }) {
   function press() {
     if (onPress) return onPress()
   }
@@ -34,26 +33,28 @@ export default function Button({ children, color, onPress, hide, loading }) {
     </View>
   )
   return (
-    <TouchableOpacity
-      style={[{ backgroundColor: color }, styles.main]}
-      activeOpacity={0.8}
-      onPress={() => press()}
-    >
-      <Content />
-    </TouchableOpacity>
+    <View style={[{ backgroundColor: color }, styles.main]}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => press()}
+      >
+        <Content />
+      </TouchableOpacity>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   main: {
-    width: windowWidth - 80,
+    width: 56,
     height: 56,
     alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 360
+        flexDirection: 'row',
+    justifyContent: 'center',
+    borderRadius: 56
   },
   hide: {
-    width: windowWidth - 80,
+    width: 56,
     height: 56,
     alignItems: "center",
     justifyContent: "center",
