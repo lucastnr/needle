@@ -4,7 +4,7 @@
 
 # O que é o Needle?
 
- O Needle é um aplicativo produzido com React Native. Ele foi criado com o intuito de fornecer ao usuário o registro de suas vacinações, que ficam guardadas digitalmente em sua conta pessoal. Facilitando, assim, o controle e a organização das vacinas do usuário.
+ O Needle é um aplicativo produzido com React Native. Ele foi criado com o intuito de fornecer ao usuário o registro de suas vacinações, que ficam guardadas digitalmente em sua conta pessoal. Facilitando, assim, o controle e a organização de suas vacinas.
  
  # Qual o objetivo do App?
  
