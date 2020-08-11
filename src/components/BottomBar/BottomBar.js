@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, StyleSheet, Dimensions } from 'react-native'
-import { CircleButton } from '../CircleButton'
-import { useAuth } from '../../contexts/auth'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
+import { useAuth } from '../../contexts/auth'
+import { CircleButton } from '../CircleButton'
 import colors from '../../../assets/colors'
 
 const windowWidth = Dimensions.get('window').width;
@@ -13,39 +14,20 @@ export default function BottomBar() {
 
   return (
     <View style={styles.bottomBar}>
-      <CircleButton
-            color={colors.secundary}
-            onPress={logout}
-            >
-              Sair
-            </CircleButton>
-            <CircleButton
-            color={colors.secundary}
-            onPress={logout}
-            >
-              Sair
-            </CircleButton>
-            <CircleButton
-            color={colors.secundary}
-            onPress={logout}
-            >
-              Sair
-            </CircleButton>
-            <CircleButton
-            color={colors.secundary}
-            onPress={logout}
-            >
-              Sair
-            </CircleButton>
+      <TouchableOpacity
+        activeOpacity={0.4}
+      >
+
+      </TouchableOpacity>
     </View>
   )
 }
 const styles = StyleSheet.create({
   bottomBar: {
-    backgroundColor: colors.darkPrimary,
+    backgroundColor: colors.secundary,
     flexDirection: 'row',
     justifyContent: 'center',
-    
+
     width: windowWidth,
     height: 64,
     justifyContent: "space-around",

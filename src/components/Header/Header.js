@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native'
 
-import Close from '../../../assets/close.svg'
+import colors from '../../../assets/colors'
+import Back from '../../../assets/icons/left-arrow.svg'
 
 const windowWidth = Dimensions.get('window').width
 
@@ -12,11 +13,11 @@ export default function Header({ navigation }) {
         activeOpacity={0.5}
         onPress={() => navigation.goBack()}
       >
-        <Close width={24} height={24} />
+        <Back width={24} height={24} />
       </TouchableOpacity>
 
       <Image
-        source={require('../../../assets/needle-text/needle-blue.png')}
+        source={require('../../../assets/needle-text/needle-white.png')}
         resizeMode={'contain'}
         style={styles.logo}
       />
@@ -28,13 +29,14 @@ export default function Header({ navigation }) {
 
 const styles = StyleSheet.create({
   header: {
+    backgroundColor: colors.secundary,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: windowWidth,
     paddingLeft: 16,
     paddingRight: 16,
-    height: 48
+    height: 56
   },
   logo: {
     width: 120,

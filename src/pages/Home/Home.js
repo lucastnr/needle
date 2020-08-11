@@ -22,6 +22,7 @@ export default function Home({ navigation }) {
           />      
     </View> */}
     <Header navigation={navigation}/>
+    <CircleButton color="aqua"onPress={logout}>Sair</CircleButton>
 
     <ScrollView contentContainerStyle={styles.main}>
     </ScrollView>
