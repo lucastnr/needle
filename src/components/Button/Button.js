@@ -6,7 +6,7 @@ import { AppText } from '../AppText'
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function Button({ children, color, onPress, hide, loading }) {
+export default function Button({ children, color, onPress, hide, loading, width }) {
   function press() {
     if (onPress) return onPress()
   }
@@ -23,9 +23,11 @@ export default function Button({ children, color, onPress, hide, loading }) {
     )
   }
 
+  if (!width) width = windowWidth - 80
+
   if (hide) return (
     <View
-      style={[{ backgroundColor: color }, styles.hide]}
+      style={[{ backgroundColor: color, width }, styles.hide]}
       onPress={() => press()}
     >
       <AppText style={styles.text}>
@@ -35,7 +37,7 @@ export default function Button({ children, color, onPress, hide, loading }) {
   )
   return (
     <TouchableOpacity
-      style={[{ backgroundColor: color }, styles.main]}
+      style={[{ backgroundColor: color, width }, styles.main]}
       activeOpacity={0.8}
       onPress={() => press()}
     >
@@ -46,7 +48,6 @@ export default function Button({ children, color, onPress, hide, loading }) {
 
 const styles = StyleSheet.create({
   main: {
-    width: windowWidth - 80,
     height: 56,
     alignItems: "center",
     justifyContent: "center",

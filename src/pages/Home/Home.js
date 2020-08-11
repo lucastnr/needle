@@ -14,21 +14,22 @@ export default function Home({ navigation }) {
 
   return (
     <>
-    {/* <View style={styles.header}>
+      {/* <View style={styles.header}>
       <Image
           source={require('../../../assets/needle-text/needle-blue.png')}
           resizeMode={'contain'}
           style={styles.logo}
           />      
     </View> */}
-    <Header navigation={navigation}/>
-    <CircleButton color="aqua"onPress={logout}>Sair</CircleButton>
+      <Header navigation={navigation} />
 
-    <ScrollView contentContainerStyle={styles.main}>
-    </ScrollView>
 
-    <BottomBar />
-  </>
+      <ScrollView contentContainerStyle={styles.main}>
+        <CircleButton color="aqua" onPress={logout}>Sair</CircleButton>
+      </ScrollView>
+
+      <BottomBar />
+    </>
   )
 }
 

@@ -15,7 +15,7 @@ export async function signIn(email, password) { // Função que requere os dados
     const json = await response.json()
     return json
   } catch (error) {
-    console.error(error)
+    // console.warn("Login mal-sucedido")
     return null
   }
 }

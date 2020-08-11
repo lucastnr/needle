@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true) // Loading inicial
   const [logging, setLogging] = useState(false) // Se está logando
+  const [error, setError] = useState(false) // Se está logando
 
   useEffect(() => { // Roda toda vez que o AuthContext for gerado
     async function loadStoragedData() { // Pega os dados do usuário e verifica se está logado
@@ -25,6 +26,7 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function signIn(email, password) { // Função que loga
+    setError(false)
     setLogging(true)
     const response = await auth.signIn(email, password) // Chama o serviço signIn
 
@@ -33,6 +35,8 @@ export function AuthProvider({ children }) {
       setUser(response)
       await AsyncStorage.setItem('@Needle:user', JSON.stringify(response))
       // await AsyncStorage.setItem('@Needle:token', response.token)
+    } else {
+      setError(true)
     }
     setLogging(false)
   }
@@ -42,6 +46,8 @@ export function AuthProvider({ children }) {
     setUser(null) // Seta o usuário como nulo
   }
 
+  function toggleError() { setError(!error) }
+
   return (
     <AuthContext.Provider value={{ // Seta os dados do provider
       signed: !!user,
@@ -49,7 +55,9 @@ export function AuthProvider({ children }) {
       signIn,
       logout,
       loading,
-      logging
+      logging,
+      error,
+      toggleError
     }}>
       {children}
     </AuthContext.Provider>
